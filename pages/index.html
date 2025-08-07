@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kennedy Project - Page Directory</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            background: linear-gradient(135deg, #e91e63, #9c27b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+            margin: 10px 0 0 0;
+        }
+        
+        .page-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .page-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .page-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .page-card h3 {
+            color: #2c3e50;
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+        }
+        
+        .page-card p {
+            color: #666;
+            margin: 0 0 15px 0;
+            line-height: 1.5;
+        }
+        
+        .page-card a {
+            display: inline-block;
+            background: linear-gradient(135deg, #e91e63, #9c27b0);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .page-card a:hover {
+            transform: translateY(-2px);
+        }
+        
+        .back-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .back-link a {
+            color: #e91e63;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .category {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 30px 0 20px 0;
+        }
+        
+        .category h2 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📚 Kennedy Project</h1>
+        <p>Academic Planner - Page Directory</p>
+    </div>
+
+    <div class="category">
+        <h2>🏠 Main Pages</h2>
+    </div>
+    <div class="page-grid">
+        <div class="page-card">
+            <h3>Dashboard</h3>
+            <p>Main dashboard with overview of academic progress and quick access to all modules.</p>
+            <a href="dashboard.html">View Dashboard</a>
+        </div>
+        
+        <div class="page-card">
+            <h3>Profile</h3>
+            <p>Personal information management, academic details, and user preferences.</p>
+            <a href="profile.html">View Profile</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>📚 Academic Management</h2>
+    </div>
+    <div class="page-grid">
+        <div class="page-card">
+            <h3>Courses</h3>
+            <p>Course registration, management, and detailed course information.</p>
+            <a href="courses.html">View Courses</a>
+        </div>
+        
+        <div class="page-card">
+            <h3>Planner</h3>
+            <p>Interactive calendar for academic planning and event management.</p>
+            <a href="planner.html">View Planner</a>
+        </div>
+        
+        <div class="page-card">
+            <h3>Class Timetable</h3>
+            <p>Weekly class schedule with detailed timing and location information.</p>
+            <a href="classtimetable.html">View Timetable</a>
+        </div>
+        
+        <div class="page-card">
+            <h3>Exam Timetable</h3>
+            <p>Comprehensive exam planning with calendar views, study plans, and reminders.</p>
+            <a href="exam-timetable.html">View Exam Schedule</a>
+        </div>
+        
+        <div class="page-card">
+            <h3>Course Reviews</h3>
+            <p>Multi-step course evaluation system with lecturer ratings and feedback.</p>
+            <a href="course-reviews.html">Submit Review</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>📊 Results & Analytics</h2>
+    </div>
+    <div class="page-grid">
+        <div class="page-card">
+            <h3>Assignment Scores</h3>
+            <p>Track assignment and continuous assessment scores across all courses.</p>
+            <a href="assignment-scores.html">View Scores</a>
+        </div>
+        
+        <div class="page-card">
+            <h3>Documents</h3>
+            <p>Document management system for academic files and resources.</p>
+            <a href="documents.html">View Documents</a>
+        </div>
+        
+        <div class="page-card">
+            <h3>Result Breakdown</h3>
+            <p>Detailed breakdown of academic results and performance metrics.</p>
+            <a href="result-breakdown.html">View Results</a>
+        </div>
+        
+        <div class="page-card">
+            <h3>Result Analysis</h3>
+            <p>Advanced analytics and visualization of academic performance.</p>
+            <a href="result-analysis.html">View Analysis</a>
+        </div>
+    </div>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Landing Page</a>
+    </div>
+</body>
+</html>
