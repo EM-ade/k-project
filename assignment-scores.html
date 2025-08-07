@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Planner - Assignment & C.A Scores</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="results.css">
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">📚</div>
+            </div>
+            <nav class="nav-menu">
+                <div class="nav-item">
+                    <span>GENERAL</span>
+                    <div class="dropdown-icon">▼</div>
+                </div>
+                <div class="nav-item">
+                    <span>ACADEMIC</span>
+                    <div class="dropdown-icon">▼</div>
+                </div>
+                <div class="nav-item active dropdown">
+                    <span>RESULTS</span>
+                    <div class="dropdown-icon">▼</div>
+                    <div class="dropdown-menu">
+                        <a href="assignment-scores.html" class="dropdown-item active">ASSIGNMENT&C.A SCORES</a>
+                        <a href="documents.html" class="dropdown-item">DOCUMENTS</a>
+                        <a href="result-breakdown.html" class="dropdown-item">RESULT BREAKDOWN</a>
+                        <a href="result-analysis.html" class="dropdown-item">RESULT ANALYSIS</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="results-container">
+        <!-- Page Title -->
+        <div class="page-header">
+            <h1 class="page-title">ASSIGNMENT&C.A SCORES</h1>
+        </div>
+
+        <!-- Scores Table -->
+        <div class="scores-section">
+            <div class="table-container">
+                <table class="scores-table">
+                    <thead>
+                        <tr>
+                            <th>COURSES</th>
+                            <th>TEST 1</th>
+                            <th>TEST 2</th>
+                            <th>ASSIGNMENT 1</th>
+                            <th>ASSIGNMENT 2</th>
+                            <th>ASSIGNMENT 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="course-code">EDS</td>
+                            <td>15.0</td>
+                            <td>15.0</td>
+                            <td>0.0</td>
+                            <td>0.0</td>
+                            <td>0.0</td>
+                        </tr>
+                        <tr>
+                            <td class="course-code">DLD</td>
+                            <td>15.0</td>
+                            <td>15.0</td>
+                            <td>0.0</td>
+                            <td>0.0</td>
+                            <td>0.0</td>
+                        </tr>
+                        <tr>
+                            <td class="course-code">TMC</td>
+                            <td>15.0</td>
+                            <td>15.0</td>
+                            <td>0.0</td>
+                            <td>0.0</td>
+                            <td>0.0</td>
+                        </tr>
+                        <tr>
+                            <td class="course-code">CEN 523</td>
+                            <td>9.0</td>
+                            <td>9.0</td>
+                            <td>4.0</td>
+                            <td>4.0</td>
+                            <td>4.0</td>
+                        </tr>
+                        <tr>
+                            <td class="course-code">CEN 522</td>
+                            <td>7.5</td>
+                            <td>7.5</td>
+                            <td>7.5</td>
+                            <td>7.5</td>
+                            <td>7.5</td>
+                        </tr>
+                        <tr>
+                            <td class="course-code">CEN 521</td>
+                            <td>10.0</td>
+                            <td>10.0</td>
+                            <td>5.0</td>
+                            <td>5.0</td>
+                            <td>5.0</td>
+                        </tr>
+                        <tr>
+                            <td class="course-code">CEN 520</td>
+                            <td>15.0</td>
+                            <td>15.0</td>
+                            <td>10.0</td>
+                            <td>10.0</td>
+                            <td>10.0</td>
+                        </tr>
+                        <tr>
+                            <td class="course-code">EIE 528</td>
+                            <td>15.0</td>
+                            <td>15.0</td>
+                            <td>10.0</td>
+                            <td>10.0</td>
+                            <td>10.0</td>
+                        </tr>
+                        <tr>
+                            <td class="course-code">EIE 520</td>
+                            <td>15.0</td>
+                            <td>15.0</td>
+                            <td>10.0</td>
+                            <td>6.0</td>
+                            <td>5.0</td>
+                        </tr>
+                        <tr>
+                            <td class="course-code">EIE 521</td>
+                            <td>10.0</td>
+                            <td>10.0</td>
+                            <td>5.0</td>
+                            <td>7.0</td>
+                            <td>4.0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="summary-section">
+            <div class="summary-card">
+                <h3>Overall Performance</h3>
+                <div class="summary-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Total Courses</span>
+                        <span class="stat-value">10</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Average Test Score</span>
+                        <span class="stat-value">13.2/15</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Average Assignment Score</span>
+                        <span class="stat-value">5.6/10</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="navigation.js"></script>
+    <script src="results.js"></script>
+</body>
+
+</html>

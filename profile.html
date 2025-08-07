@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Planner - Profile</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">📚</div>
+            </div>
+            <nav class="nav-menu">
+                <div class="nav-item active dropdown">
+                    <span>GENERAL</span>
+                    <div class="dropdown-icon">▼</div>
+                    <div class="dropdown-menu">
+                        <a href="dashboard.html" class="dropdown-item">DASHBOARD</a>
+                        <a href="profile.html" class="dropdown-item active">PROFILE</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <span>ACADEMIC</span>
+                    <div class="dropdown-icon">▼</div>
+                    <div class="dropdown-menu">
+                        <a href="courses.html" class="dropdown-item">COURSES</a>
+                        <a href="planner.html" class="dropdown-item">PLANNER</a>
+                        <a href="classtimetable.html" class="dropdown-item">CLASS TIMETABLE</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <span>RESULTS</span>
+                    <div class="dropdown-icon">▼</div>
+                    <div class="dropdown-menu">
+                        <a href="assignment-scores.html" class="dropdown-item">ASSIGNMENT&C.A SCORES</a>
+                        <a href="documents.html" class="dropdown-item">DOCUMENTS</a>
+                        <a href="result-breakdown.html" class="dropdown-item">RESULT BREAKDOWN</a>
+                        <a href="result-analysis.html" class="dropdown-item">RESULT ANALYSIS</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="profile-container">
+        <!-- Page Title -->
+        <div class="page-header">
+            <h1 class="page-title">PROFILE</h1>
+        </div>
+
+        <!-- Profile Content -->
+        <div class="profile-content">
+            <!-- Profile Tabs -->
+            <div class="profile-tabs">
+                <button class="tab-button active" data-tab="academic">Academic Profile</button>
+                <button class="tab-button" data-tab="personnel">Personnel Profile</button>
+            </div>
+
+            <!-- Profile Card -->
+            <div class="profile-card">
+                <!-- Profile Picture Section -->
+                <div class="profile-picture-section">
+                    <div class="profile-picture">
+                        <span class="picture-placeholder">144×144</span>
+                    </div>
+                    <div class="matriculation-number">
+                        MATRICULATION NUMBER: 16CJ020796
+                    </div>
+                </div>
+
+                <!-- Academic Profile Tab Content -->
+                <div class="tab-content active" id="academic-tab">
+                    <div class="profile-info">
+                        <div class="info-item program">
+                            <div class="info-label">PROGRAM</div>
+                            <div class="info-value">Major in Computer Engineering(B.Eng)</div>
+                        </div>
+
+                        <div class="info-item department">
+                            <div class="info-label">DEPARTMENT</div>
+                            <div class="info-value">Electrical and Information Engineering(EIE)</div>
+                        </div>
+
+                        <div class="info-item college">
+                            <div class="info-label">COLLEGE</div>
+                            <div class="info-value">College of Engineering</div>
+                        </div>
+
+                        <div class="info-item duration">
+                            <div class="info-label">DURATION</div>
+                            <div class="info-value">5 years</div>
+                        </div>
+
+                        <div class="info-item session">
+                            <div class="info-label">SESSION OF ENTRY</div>
+                            <div class="info-value">2016/2017</div>
+                        </div>
+
+                        <div class="info-item graduation">
+                            <div class="info-label">GRADUATING SESSION</div>
+                            <div class="info-value">2020/2021</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personnel Profile Tab Content -->
+                <div class="tab-content" id="personnel-tab">
+                    <div class="profile-info">
+                        <div class="info-item name">
+                            <div class="info-label">FULL NAME</div>
+                            <div class="info-value">John Doe Student</div>
+                        </div>
+
+                        <div class="info-item email">
+                            <div class="info-label">EMAIL ADDRESS</div>
+                            <div class="info-value">john.doe@stu.cu.edu.ng</div>
+                        </div>
+
+                        <div class="info-item phone">
+                            <div class="info-label">PHONE NUMBER</div>
+                            <div class="info-value">+234 801 234 5678</div>
+                        </div>
+
+                        <div class="info-item gender">
+                            <div class="info-label">GENDER</div>
+                            <div class="info-value">Male</div>
+                        </div>
+
+                        <div class="info-item dob">
+                            <div class="info-label">DATE OF BIRTH</div>
+                            <div class="info-value">January 15, 1998</div>
+                        </div>
+
+                        <div class="info-item address">
+                            <div class="info-label">HOME ADDRESS</div>
+                            <div class="info-value">123 Student Avenue, Ota, Ogun State, Nigeria</div>
+                        </div>
+
+                        <div class="info-item guardian">
+                            <div class="info-label">GUARDIAN</div>
+                            <div class="info-value">Mr. John Doe Sr.</div>
+                        </div>
+
+                        <div class="info-item guardian-phone">
+                            <div class="info-label">GUARDIAN PHONE</div>
+                            <div class="info-value">+234 802 345 6789</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="navigation.js"></script>
+    <script src="profile.js"></script>
+</body>
+</html>

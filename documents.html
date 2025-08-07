@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Planner - Documents</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="results.css">
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">📚</div>
+            </div>
+            <nav class="nav-menu">
+                <div class="nav-item">
+                    <span>GENERAL</span>
+                    <div class="dropdown-icon">▼</div>
+                </div>
+                <div class="nav-item">
+                    <span>ACADEMIC</span>
+                    <div class="dropdown-icon">▼</div>
+                </div>
+                <div class="nav-item active dropdown">
+                    <span>RESULTS</span>
+                    <div class="dropdown-icon">▼</div>
+                    <div class="dropdown-menu">
+                        <a href="assignment-scores.html" class="dropdown-item">ASSIGNMENT&C.A SCORES</a>
+                        <a href="documents.html" class="dropdown-item active">DOCUMENTS</a>
+                        <a href="result-breakdown.html" class="dropdown-item">RESULT BREAKDOWN</a>
+                        <a href="result-analysis.html" class="dropdown-item">RESULT ANALYSIS</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="results-container">
+        <!-- Page Title -->
+        <div class="page-header">
+            <h1 class="page-title">DOCUMENTS</h1>
+        </div>
+
+        <!-- Documents Section -->
+        <div class="documents-section">
+            <h2 class="section-title">ACADEMIC DOCUMENTS.</h2>
+
+            <div class="documents-grid">
+                <!-- Row 1 -->
+                <div class="document-card">
+                    <div class="document-icon">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggNEg2QzQuOSA0IDQgNC45IDQgNlYzNEM0IDM1LjEgNC45IDM2IDYgMzZIMzRDMzUuMSAzNiAzNiAzNS4xIDM2IDM0VjZDMzYgNC45IDM1LjEgNCAzNCA0SDMyVjJIMzBWNEgxMFYySDE4VjRaIiBmaWxsPSIjRDMyRjJGIi8+CjxwYXRoIGQ9Ik0xMCAxMEgzMFYxMkgxMFYxMFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAxNkgzMFYxOEgxMFYxNloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAyMkgzMFYyNEgxMFYyMloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAyOEgyNlYzMEgxMFYyOFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo="
+                            alt="PDF">
+                    </div>
+                    <div class="document-info">
+                        <h3 class="document-title">ADMISSION LETTER</h3>
+                        <a href="#" class="download-link" onclick="downloadDocument('admission-letter')">Download
+                            PDF</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <div class="document-icon">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggNEg2QzQuOSA0IDQgNC45IDQgNlYzNEM0IDM1LjEgNC45IDM2IDYgMzZIMzRDMzUuMSAzNiAzNiAzNS4xIDM2IDM0VjZDMzYgNC45IDM1LjEgNCAzNCA0SDMyVjJIMzBWNEgxMFYySDE4VjRaIiBmaWxsPSIjRDMyRjJGIi8+CjxwYXRoIGQ9Ik0xMCAxMEgzMFYxMkgxMFYxMFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAxNkgzMFYxOEgxMFYxNloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAyMkgzMFYyNEgxMFYyMloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAyOEgyNlYzMEgxMFYyOFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo="
+                            alt="PDF">
+                    </div>
+                    <div class="document-info">
+                        <h3 class="document-title">JAMB</h3>
+                        <a href="#" class="download-link" onclick="downloadDocument('jamb')">Download PDF</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <div class="document-icon">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggNEg2QzQuOSA0IDQgNC45IDQgNlYzNEM0IDM1LjEgNC45IDM2IDYgMzZIMzRDMzUuMSAzNiAzNiAzNS4xIDM2IDM0VjZDMzYgNC45IDM1LjEgNCAzNCA0SDMyVjJIMzBWNEgxMFYySDE4VjRaIiBmaWxsPSIjRDMyRjJGIi8+CjxwYXRoIGQ9Ik0xMCAxMEgzMFYxMkgxMFYxMFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAxNkgzMFYxOEgxMFYxNloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAyMkgzMFYyNEgxMFYyMloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAyOEgyNlYzMEgxMFYyOFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo="
+                            alt="PDF">
+                    </div>
+                    <div class="document-info">
+                        <h3 class="document-title">WAEC RESULT</h3>
+                        <a href="#" class="download-link" onclick="downloadDocument('waec-result')">Download PDF</a>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="document-card">
+                    <div class="document-icon">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggNEg2QzQuOSA0IDQgNC45IDQgNlYzNEM0IDM1LjEgNC45IDM2IDYgMzZIMzRDMzUuMSAzNiAzNiAzNS4xIDM2IDM0VjZDMzYgNC45IDM1LjEgNCAzNCA0SDMyVjJIMzBWNEgxMFYySDE4VjRaIiBmaWxsPSIjRDMyRjJGIi8+CjxwYXRoIGQ9Ik0xMCAxMEgzMFYxMkgxMFYxMFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAxNkgzMFYxOEgxMFYxNloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAyMkgzMFYyNEgxMFYyMloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAyOEgyNlYzMEgxMFYyOFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo="
+                            alt="PDF">
+                    </div>
+                    <div class="document-info">
+                        <h3 class="document-title">CERTIFICATE OF REGISTRATION OF BIRTH</h3>
+                        <a href="#" class="download-link" onclick="downloadDocument('birth-certificate')">Download
+                            PDF</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <div class="document-icon">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggNEg2QzQuOSA0IDQgNC45IDQgNlYzNEM0IDM1LjEgNC45IDM2IDYgMzZIMzRDMzUuMSAzNiAzNiAzNS4xIDM2IDM0VjZDMzYgNC45IDM1LjEgNCAzNCA0SDMyVjJIMzBWNEgxMFYySDE4VjRaIiBmaWxsPSIjRDMyRjJGIi8+CjxwYXRoIGQ9Ik0xMCAxMEgzMFYxMkgxMFYxMFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAxNkgzMFYxOEgxMFYxNloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAyMkgzMFYyNEgxMFYyMloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAyOEgyNlYzMEgxMFYyOFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo="
+                            alt="PDF">
+                    </div>
+                    <div class="document-info">
+                        <h3 class="document-title">SCHOOL IDENTIFICATION CARD</h3>
+                        <a href="#" class="download-link" onclick="downloadDocument('school-id')">Download PDF</a>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <div class="document-icon">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggNEg2QzQuOSA0IDQgNC45IDQgNlYzNEM0IDM1LjEgNC45IDM2IDYgMzZIMzRDMzUuMSAzNiAzNiAzNS4xIDM2IDM0VjZDMzYgNC45IDM1LjEgNCAzNCA0SDMyVjJIMzBWNEgxMFYySDE4VjRaIiBmaWxsPSIjRDMyRjJGIi8+CjxwYXRoIGQ9Ik0xMCAxMEgzMFYxMkgxMFYxMFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAxNkgzMFYxOEgxMFYxNloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAyMkgzMFYyNEgxMFYyMloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCAyOEgyNlYzMEgxMFYyOFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo="
+                            alt="PDF">
+                    </div>
+                    <div class="document-info">
+                        <h3 class="document-title">COVENANT ADMISSION LETTER</h3>
+                        <a href="#" class="download-link" onclick="downloadDocument('covenant-admission')">Download
+                            PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PDF Embed Widget -->
+            <div class="pdf-widget">
+                <div class="widget-info">
+                    <span class="widget-icon">📄</span>
+                    <span class="widget-text">Free PDF Embed widget</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="navigation.js"></script>
+    <script src="results.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Planner - Result Analysis</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="results.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">📚</div>
+            </div>
+            <nav class="nav-menu">
+                <div class="nav-item">
+                    <span>GENERAL</span>
+                    <div class="dropdown-icon">▼</div>
+                </div>
+                <div class="nav-item">
+                    <span>ACADEMIC</span>
+                    <div class="dropdown-icon">▼</div>
+                </div>
+                <div class="nav-item active dropdown">
+                    <span>RESULTS</span>
+                    <div class="dropdown-icon">▼</div>
+                    <div class="dropdown-menu">
+                        <a href="assignment-scores.html" class="dropdown-item">ASSIGNMENT&C.A SCORES</a>
+                        <a href="documents.html" class="dropdown-item">DOCUMENTS</a>
+                        <a href="result-breakdown.html" class="dropdown-item">RESULT BREAKDOWN</a>
+                        <a href="result-analysis.html" class="dropdown-item active">RESULT ANALYSIS</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="results-container">
+        <!-- Page Title -->
+        <div class="page-header">
+            <h1 class="page-title">RESULT ANALYSIS</h1>
+        </div>
+
+        <!-- Analysis Content -->
+        <div class="analysis-layout">
+            <!-- Left Side - Analysis Cards -->
+            <div class="analysis-main">
+                <div class="analysis-header">
+                    <h2>RESULT ANALYSIS</h2>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="analysis-stats">
+                    <div class="stat-card">
+                        <div class="stat-label">PASSED COURSES</div>
+                        <div class="stat-value large">12/12</div>
+                        <div class="stat-percentage">100%</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-label">FAILED COURSES</div>
+                        <div class="stat-value large">0/12</div>
+                        <div class="stat-percentage">0%</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-label">CURRENT GPA</div>
+                        <div class="stat-value large">2.85</div>
+                        <div class="stat-percentage">57% avg</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-label">CURRENT CGPA</div>
+                        <div class="stat-value large">2.71</div>
+                        <div class="stat-percentage">54.2% avg</div>
+                    </div>
+                </div>
+
+                <!-- Result Chart Section -->
+                <div class="chart-section">
+                    <h3>Result Chart</h3>
+                    
+                    <div class="chart-item">
+                        <div class="chart-label">Passed courses</div>
+                        <div class="chart-bar">
+                            <div class="chart-fill passed" style="width: 100%"></div>
+                        </div>
+                        <div class="chart-percentage">100%</div>
+                    </div>
+
+                    <div class="chart-item">
+                        <div class="chart-label">Failed courses</div>
+                        <div class="chart-bar">
+                            <div class="chart-fill failed" style="width: 0%"></div>
+                        </div>
+                        <div class="chart-percentage">0%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Discussions -->
+            <div class="discussions-sidebar">
+                <div class="discussions-header">
+                    <h3>All Discussions</h3>
+                </div>
+
+                <div class="discussion-item">
+                    <div class="discussion-question">How can I read better?</div>
+                    <div class="discussion-answer">Yes, it is a dummy question, good job. Cheers, nothing gets past you I see.</div>
+                    <div class="discussion-avatars">
+                        <div class="avatar">👤</div>
+                        <div class="avatar">👤</div>
+                        <div class="avatar">👤</div>
+                        <span class="more-count">+2</span>
+                    </div>
+                </div>
+
+                <div class="discussion-item">
+                    <div class="discussion-question">You want to be a tutor?Click on the button</div>
+                    <div class="discussion-answer">Yes, it is a dummy question, good job. Cheers, nothing gets past you I see.</div>
+                    <div class="discussion-avatars">
+                        <div class="avatar">👤</div>
+                        <div class="avatar">👤</div>
+                        <div class="avatar">👤</div>
+                        <span class="more-count">+2</span>
+                    </div>
+                </div>
+
+                <div class="discussion-item">
+                    <div class="discussion-question">Is Computer Engineering a good start for game engineer?</div>
+                    <div class="discussion-answer">Yes, it is a dummy question, good job. Cheers, nothing gets past you I see.</div>
+                    <div class="discussion-avatars">
+                        <div class="avatar">👤</div>
+                        <div class="avatar">👤</div>
+                        <div class="avatar">👤</div>
+                        <span class="more-count">+2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="navigation.js"></script>
+    <script src="results.js"></script>
+</body>
+</html>

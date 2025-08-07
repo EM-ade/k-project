@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Planner - Course Reviews</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="course-reviews.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">📚</div>
+            </div>
+            <nav class="nav-menu">
+                <div class="nav-item dropdown">
+                    <span>GENERAL</span>
+                    <div class="dropdown-icon">▼</div>
+                    <div class="dropdown-menu">
+                        <a href="dashboard.html" class="dropdown-item">DASHBOARD</a>
+                        <a href="profile.html" class="dropdown-item">PROFILE</a>
+                    </div>
+                </div>
+                <div class="nav-item active dropdown">
+                    <span>ACADEMIC</span>
+                    <div class="dropdown-icon">▼</div>
+                    <div class="dropdown-menu">
+                        <a href="courses.html" class="dropdown-item">COURSES</a>
+                        <a href="planner.html" class="dropdown-item">PLANNER</a>
+                        <a href="classtimetable.html" class="dropdown-item">CLASS TIMETABLE</a>
+                        <a href="course-reviews.html" class="dropdown-item active">COURSE REVIEWS</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <span>RESULTS</span>
+                    <div class="dropdown-icon">▼</div>
+                    <div class="dropdown-menu">
+                        <a href="assignment-scores.html" class="dropdown-item">ASSIGNMENT&C.A SCORES</a>
+                        <a href="documents.html" class="dropdown-item">DOCUMENTS</a>
+                        <a href="result-breakdown.html" class="dropdown-item">RESULT BREAKDOWN</a>
+                        <a href="result-analysis.html" class="dropdown-item">RESULT ANALYSIS</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="reviews-container">
+        <!-- Page Title -->
+        <div class="page-header">
+            <h1 class="page-title">COURSE REVIEWS</h1>
+        </div>
+
+        <!-- Course Selection Tabs -->
+        <div class="course-tabs">
+            <button class="course-tab active" data-course="EIE501">EIE501</button>
+            <button class="course-tab" data-course="CEN520">CEN520</button>
+            <button class="course-tab" data-course="CEN521">CEN521</button>
+            <button class="course-tab" data-course="CEN522">CEN522</button>
+            <button class="course-tab" data-course="CEN523">CEN523</button>
+            <button class="course-tab" data-course="EIE520">EIE520</button>
+            <button class="course-tab" data-course="EIE528">EIE528</button>
+            <button class="course-tab" data-course="TMC501">TMC501</button>
+            <button class="course-tab" data-course="DLD521">DLD521</button>
+        </div>
+
+        <!-- Review Form -->
+        <div class="review-form">
+            <!-- Step 1: Matriculation Number -->
+            <div class="form-step active" id="step-matriculation">
+                <div class="step-content">
+                    <h2 class="step-title">Let's start with your matriculation number.</h2>
+                    <p class="step-subtitle">Please fill in the details below correctly so it can be of help to others.</p>
+                    
+                    <div class="input-group">
+                        <label for="matriculation">Enter your matriculation number</label>
+                        <input type="text" id="matriculation" placeholder="eg. 16CJ020796" class="form-input">
+                    </div>
+                    
+                    <button class="next-btn" onclick="nextStep()">Continue</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Rate the Lecturer -->
+            <div class="form-step" id="step-lecturer">
+                <div class="step-content">
+                    <h2 class="step-title">Rate the lecturer?</h2>
+                    
+                    <div class="rating-options">
+                        <div class="rating-option" data-value="excellent">
+                            <div class="option-card">
+                                <span class="option-text">Excellent</span>
+                            </div>
+                        </div>
+                        <div class="rating-option" data-value="very-good">
+                            <div class="option-card">
+                                <span class="option-text">Very good</span>
+                            </div>
+                        </div>
+                        <div class="rating-option" data-value="good">
+                            <div class="option-card">
+                                <span class="option-text">Good</span>
+                            </div>
+                        </div>
+                        <div class="rating-option" data-value="poor">
+                            <div class="option-card">
+                                <span class="option-text">Poor</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button class="prev-btn" onclick="prevStep()">Previous</button>
+                        <button class="next-btn" onclick="nextStep()">Continue</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Course Experience -->
+            <div class="form-step" id="step-experience">
+                <div class="step-content">
+                    <h2 class="step-title">Choose your experience in this course.</h2>
+                    
+                    <div class="experience-options">
+                        <div class="experience-option" data-value="understood-passed">
+                            <div class="option-card">
+                                <span class="option-text">I understood every aspect of the course and passed the course.</span>
+                            </div>
+                        </div>
+                        <div class="experience-option" data-value="understood-failed">
+                            <div class="option-card">
+                                <span class="option-text">I understood the course yet somehow I failed the examination.</span>
+                            </div>
+                        </div>
+                        <div class="experience-option" data-value="no-idea-passed">
+                            <div class="option-card">
+                                <span class="option-text">I had no idea yet I passed the course.</span>
+                            </div>
+                        </div>
+                        <div class="experience-option" data-value="no-idea-failed">
+                            <div class="option-card">
+                                <span class="option-text">I had no idea and I failed the course.</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button class="prev-btn" onclick="prevStep()">Previous</button>
+                        <button class="next-btn" onclick="nextStep()">Continue</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Tutorial Necessity -->
+            <div class="form-step" id="step-tutorials">
+                <div class="step-content">
+                    <h2 class="step-title">Where tutorials necessary for this course?</h2>
+                    
+                    <div class="binary-options">
+                        <div class="binary-option" data-value="yes">
+                            <div class="option-card">
+                                <span class="option-text">Yes</span>
+                            </div>
+                        </div>
+                        <div class="binary-option" data-value="no">
+                            <div class="option-card">
+                                <span class="option-text">No</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button class="prev-btn" onclick="prevStep()">Previous</button>
+                        <button class="next-btn" onclick="nextStep()">Continue</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: Teaching Technique -->
+            <div class="form-step" id="step-technique">
+                <div class="step-content">
+                    <h2 class="step-title">Rate the teaching technique</h2>
+                    
+                    <div class="binary-options">
+                        <div class="binary-option" data-value="sufficient">
+                            <div class="option-card">
+                                <span class="option-text">Sufficient</span>
+                            </div>
+                        </div>
+                        <div class="binary-option" data-value="not-sufficient">
+                            <div class="option-card">
+                                <span class="option-text">Not sufficient</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button class="prev-btn" onclick="prevStep()">Previous</button>
+                        <button class="next-btn" onclick="nextStep()">Continue</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6: Difficulty Rating -->
+            <div class="form-step" id="step-difficulty">
+                <div class="step-content">
+                    <h2 class="step-title">Rate the degree of difficulty.</h2>
+                    
+                    <div class="difficulty-options">
+                        <div class="difficulty-option" data-value="extremely-difficult">
+                            <div class="option-card">
+                                <span class="option-text">Extremely Difficult</span>
+                            </div>
+                        </div>
+                        <div class="difficulty-option" data-value="difficult">
+                            <div class="option-card">
+                                <span class="option-text">Difficult</span>
+                            </div>
+                        </div>
+                        <div class="difficulty-option" data-value="simple">
+                            <div class="option-card">
+                                <span class="option-text">Simple</span>
+                            </div>
+                        </div>
+                        <div class="difficulty-option" data-value="easy">
+                            <div class="option-card">
+                                <span class="option-text">Easy</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button class="prev-btn" onclick="prevStep()">Previous</button>
+                        <button class="next-btn" onclick="nextStep()">Continue</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 7: Confirmation -->
+            <div class="form-step" id="step-confirmation">
+                <div class="step-content">
+                    <h2 class="step-title">Confirm Submission.</h2>
+                    <p class="step-subtitle">Thanks for taking the time to complete this form.<br>
+                    Please enter your email below and we will be in contact within 24 hours.</p>
+                    
+                    <div class="input-group">
+                        <input type="email" id="email" placeholder="Enter your email address" class="form-input">
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button class="prev-btn" onclick="prevStep()">Previous</button>
+                        <button class="submit-btn" onclick="submitReview()">Complete Submission</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="progress-text">
+                <span class="current-step">1</span> / <span class="total-steps">7</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="navigation.js"></script>
+    <script src="course-reviews.js"></script>
+</body>
+</html>
