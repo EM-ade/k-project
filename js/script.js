@@ -115,7 +115,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   console.log("Login attempt:", loginData);
 
   // For demo purposes, redirect to dashboard
-  window.location.href = "dashboard.html";
+  window.location.href = "pages/dashboard.html";
 });
 
 // Add smooth animations

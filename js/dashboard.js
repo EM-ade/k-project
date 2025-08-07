@@ -54,8 +54,8 @@ function setupEventListeners() {
           window.location.href = "courses.html";
           break;
         case "RESULTS":
-          // Navigate to results page (to be created)
-          alert("Results page coming soon!");
+          // Navigate to assignment scores page
+          window.location.href = "assignment-scores.html";
           break;
       }
     });
