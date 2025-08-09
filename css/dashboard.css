@@ -35,8 +35,63 @@ body {
 }
 
 .logo-icon {
-  font-size: 2rem;
+  height: 40px;
+  width: auto;
+  max-width: 120px;
   margin-right: 10px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: brightness(1);
+}
+
+.logo-icon:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+/* Ensure logo loads smoothly */
+.logo-icon {
+  opacity: 0;
+  animation: logoFadeIn 0.5s ease-in-out 0.2s forwards;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* Show logo once it's loaded */
+.logo-icon.loaded {
+  background-color: transparent;
+}
+
+@keyframes logoFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading placeholder for logo */
+.logo-icon:not(.loaded) {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: logoFadeIn 0.5s ease-in-out 0.2s forwards, shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 .nav-menu {
@@ -335,6 +390,11 @@ body {
     gap: 20px;
   }
 
+  .logo-icon {
+    height: 35px;
+    max-width: 100px;
+  }
+
   .greeting h1 {
     font-size: 2rem;
   }
@@ -345,5 +405,32 @@ body {
 
   .main-container {
     padding: 20px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-icon {
+    height: 30px;
+    max-width: 80px;
+  }
+
+  .header-content {
+    padding: 0 15px;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .logo-icon {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1400px) {
+  .logo-icon {
+    height: 45px;
+    max-width: 140px;
   }
 }

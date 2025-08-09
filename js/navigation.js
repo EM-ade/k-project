@@ -42,6 +42,8 @@ function setupGlobalNavigation() {
 
   // Add logo click to go back to main page
   const logo = document.querySelector(".logo");
+  const logoIcon = document.querySelector(".logo-icon");
+
   if (logo) {
     logo.addEventListener("click", function () {
       const currentPath = window.location.pathname;
@@ -50,6 +52,28 @@ function setupGlobalNavigation() {
       window.location.href = homePath;
     });
     logo.style.cursor = "pointer";
+  }
+
+  // Handle logo loading state
+  if (logoIcon && logoIcon.tagName === "IMG") {
+    logoIcon.addEventListener("load", function () {
+      this.classList.add("loaded");
+    });
+
+    logoIcon.addEventListener("error", function () {
+      // Fallback if logo fails to load
+      this.style.display = "none";
+      const fallbackText = document.createElement("div");
+      fallbackText.textContent = "📚";
+      fallbackText.className = "logo-icon loaded";
+      fallbackText.style.fontSize = "2rem";
+      this.parentNode.appendChild(fallbackText);
+    });
+
+    // If image is already loaded (cached)
+    if (logoIcon.complete) {
+      logoIcon.classList.add("loaded");
+    }
   }
 }
 

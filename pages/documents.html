@@ -14,16 +14,28 @@
     <header class="header">
         <div class="header-content">
             <div class="logo">
-                <div class="logo-icon">📚</div>
+                <img src="../assets/images/chrisland-university-logo-transparent.png" alt="Chrisland University"
+                    class="logo-icon">
             </div>
             <nav class="nav-menu">
-                <div class="nav-item">
+                <div class="nav-item dropdown">
                     <span>GENERAL</span>
                     <div class="dropdown-icon">▼</div>
+                    <div class="dropdown-menu">
+                        <a href="dashboard.html" class="dropdown-item">DASHBOARD</a>
+                        <a href="profile.html" class="dropdown-item">PROFILE</a>
+                    </div>
                 </div>
-                <div class="nav-item">
+                <div class="nav-item dropdown">
                     <span>ACADEMIC</span>
                     <div class="dropdown-icon">▼</div>
+                    <div class="dropdown-menu">
+                        <a href="courses.html" class="dropdown-item">COURSES</a>
+                        <a href="planner.html" class="dropdown-item">PLANNER</a>
+                        <a href="classtimetable.html" class="dropdown-item">CLASS TIMETABLE</a>
+                        <a href="exam-timetable.html" class="dropdown-item">EXAM TIMETABLE</a>
+                        <a href="course-reviews.html" class="dropdown-item">COURSE REVIEWS</a>
+                    </div>
                 </div>
                 <div class="nav-item active dropdown">
                     <span>RESULTS</span>
@@ -46,9 +58,25 @@
             <h1 class="page-title">DOCUMENTS</h1>
         </div>
 
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <div class="upload-header">
+                <h2 class="section-title">UPLOAD DOCUMENTS</h2>
+                <button class="upload-btn" onclick="openUploadModal()">📁 Upload New Document</button>
+            </div>
+        </div>
+
+        <!-- User Documents Section -->
+        <div class="user-documents-section">
+            <h2 class="section-title">MY DOCUMENTS</h2>
+            <div id="userDocumentsGrid" class="documents-grid">
+                <!-- User uploaded documents will appear here -->
+            </div>
+        </div>
+
         <!-- Documents Section -->
         <div class="documents-section">
-            <h2 class="section-title">ACADEMIC DOCUMENTS.</h2>
+            <h2 class="section-title">ACADEMIC DOCUMENTS</h2>
 
             <div class="documents-grid">
                 <!-- Row 1 -->
@@ -133,8 +161,70 @@
         </div>
     </div>
 
+    <!-- Upload Document Modal -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Upload Document</h2>
+                <span class="close" onclick="closeUploadModal()">&times;</span>
+            </div>
+            <form id="uploadForm" class="upload-form">
+                <div class="form-group">
+                    <label for="documentTitle">Document Title</label>
+                    <input type="text" id="documentTitle" name="documentTitle"
+                        placeholder="e.g., Transcript, Certificate, etc." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="documentCategory">Category</label>
+                    <select id="documentCategory" name="documentCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="academic">Academic Records</option>
+                        <option value="certificates">Certificates</option>
+                        <option value="transcripts">Transcripts</option>
+                        <option value="assignments">Assignments</option>
+                        <option value="projects">Projects</option>
+                        <option value="personal">Personal Documents</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="documentFile">Choose File</label>
+                    <div class="file-upload-area" onclick="document.getElementById('documentFile').click()">
+                        <input type="file" id="documentFile" name="documentFile"
+                            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required style="display: none;">
+                        <div class="upload-placeholder">
+                            <div class="upload-icon">📄</div>
+                            <p>Click to select a file or drag and drop</p>
+                            <small>Supported formats: PDF, DOC, DOCX, JPG, PNG (Max 10MB)</small>
+                        </div>
+                        <div class="file-preview" style="display: none;">
+                            <div class="file-info">
+                                <span class="file-name"></span>
+                                <span class="file-size"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="documentDescription">Description (Optional)</label>
+                    <textarea id="documentDescription" name="documentDescription"
+                        placeholder="Add any additional notes about this document" rows="3"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeUploadModal()">Cancel</button>
+                    <button type="submit" class="btn-submit">Upload Document</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="../js/navigation.js"></script>
     <script src="../js/results.js"></script>
+    <script src="../js/documents.js"></script>
 </body>
 
 </html>

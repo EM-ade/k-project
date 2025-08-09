@@ -1,313 +1,367 @@
 // Exam Timetable JavaScript
 
 let currentDate = new Date();
-let currentPeriod = 'current';
-let currentView = 'calendar';
+let currentPeriod = "current";
+let currentView = "calendar";
 let examData = [];
 
-document.addEventListener('DOMContentLoaded', function() {
-    initializeExamTimetable();
-    loadExamData();
-    renderCalendar();
-    setupEventListeners();
+document.addEventListener("DOMContentLoaded", function () {
+  initializeExamTimetable();
+  loadExamData();
+  renderCalendar();
+  setupEventListeners();
 });
 
 function initializeExamTimetable() {
-    // Set current date to May 2025 for exam period
-    currentDate = new Date(2025, 4, 1); // May 2025 (month is 0-indexed)
+  // Set current date to May 2025 for exam period
+  currentDate = new Date(2025, 4, 1); // May 2025 (month is 0-indexed)
 }
 
 function loadExamData() {
-    // Sample exam data
-    examData = [
-        {
-            id: 1,
-            course: 'CEN523',
-            title: 'Computer Networking and Security',
-            type: 'theory',
-            date: '2025-05-20',
-            startTime: '09:00',
-            endTime: '12:00',
-            location: 'Exam Hall A',
-            instructor: 'Dr. Kennedy',
-            duration: 180
-        },
-        {
-            id: 2,
-            course: 'CEN520',
-            title: 'Robotics & Automation',
-            type: 'practical',
-            date: '2025-05-22',
-            startTime: '14:00',
-            endTime: '17:00',
-            location: 'Robotics Lab',
-            instructor: 'Dr. Hope & Dr. Victoria',
-            duration: 180
-        },
-        {
-            id: 3,
-            course: 'CEN521',
-            title: 'Software Engineering',
-            type: 'project',
-            date: '2025-05-25',
-            startTime: '10:00',
-            endTime: '12:00',
-            location: 'Conference Room B',
-            instructor: 'Professor Sanjay Misra',
-            duration: 120
-        },
-        {
-            id: 4,
-            course: 'CEN522',
-            title: 'Microprocessor Systems',
-            type: 'theory',
-            date: '2025-05-19',
-            startTime: '09:00',
-            endTime: '12:00',
-            location: 'Exam Hall B',
-            instructor: 'Engineer Omoruyi',
-            duration: 180
-        },
-        {
-            id: 5,
-            course: 'EIE501',
-            title: 'Digital Signal Processing',
-            type: 'oral',
-            date: '2025-05-27',
-            startTime: '14:00',
-            endTime: '16:00',
-            location: 'Faculty Office',
-            instructor: 'Dr. Sarah Johnson',
-            duration: 120
-        }
-    ];
+  // Load exams from localStorage
+  const savedExams = localStorage.getItem("userExams");
+  const userExams = savedExams ? JSON.parse(savedExams) : [];
+
+  // Sample exam data
+  const sampleExams = [
+    {
+      id: 1,
+      course: "CEN523",
+      title: "Computer Networking and Security",
+      type: "theory",
+      date: "2025-05-20",
+      startTime: "09:00",
+      endTime: "12:00",
+      location: "Exam Hall A",
+      instructor: "Dr. Kennedy",
+      duration: 180,
+    },
+    {
+      id: 2,
+      course: "CEN520",
+      title: "Robotics & Automation",
+      type: "practical",
+      date: "2025-05-22",
+      startTime: "14:00",
+      endTime: "17:00",
+      location: "Robotics Lab",
+      instructor: "Dr. Hope & Dr. Victoria",
+      duration: 180,
+    },
+    {
+      id: 3,
+      course: "CEN521",
+      title: "Software Engineering",
+      type: "project",
+      date: "2025-05-25",
+      startTime: "10:00",
+      endTime: "12:00",
+      location: "Conference Room B",
+      instructor: "Professor Sanjay Misra",
+      duration: 120,
+    },
+    {
+      id: 4,
+      course: "CEN522",
+      title: "Microprocessor Systems",
+      type: "theory",
+      date: "2025-05-19",
+      startTime: "09:00",
+      endTime: "12:00",
+      location: "Exam Hall B",
+      instructor: "Engineer Omoruyi",
+      duration: 180,
+    },
+    {
+      id: 5,
+      course: "EIE501",
+      title: "Digital Signal Processing",
+      type: "oral",
+      date: "2025-05-27",
+      startTime: "14:00",
+      endTime: "16:00",
+      location: "Faculty Office",
+      instructor: "Dr. Sarah Johnson",
+      duration: 120,
+    },
+  ];
+
+  // Combine sample exams with user exams
+  examData = [...sampleExams, ...userExams];
 }
 
 function setupEventListeners() {
-    // Period tab listeners
-    document.querySelectorAll('.period-tab').forEach(tab => {
-        tab.addEventListener('click', function() {
-            switchPeriod(this.dataset.period);
-        });
+  // Period tab listeners
+  document.querySelectorAll(".period-tab").forEach((tab) => {
+    tab.addEventListener("click", function () {
+      switchPeriod(this.dataset.period);
     });
+  });
 
-    // View toggle listeners
-    document.querySelectorAll('.view-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            switchView(this.dataset.view);
-        });
+  // View toggle listeners
+  document.querySelectorAll(".view-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      switchView(this.dataset.view);
     });
+  });
 
-    // Calendar navigation
-    document.getElementById('prevMonth').addEventListener('click', () => {
-        currentDate.setMonth(currentDate.getMonth() - 1);
-        renderCalendar();
-    });
+  // Calendar navigation
+  document.getElementById("prevMonth").addEventListener("click", () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
+  });
 
-    document.getElementById('nextMonth').addEventListener('click', () => {
-        currentDate.setMonth(currentDate.getMonth() + 1);
-        renderCalendar();
-    });
+  document.getElementById("nextMonth").addEventListener("click", () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
+  });
 
-    // Action button listeners
-    setupActionListeners();
+  // Action button listeners
+  setupActionListeners();
 
-    // Modal listeners
-    setupModalListeners();
+  // Modal listeners
+  setupModalListeners();
 }
 
 function switchPeriod(period) {
-    currentPeriod = period;
-    
-    // Update active tab
-    document.querySelectorAll('.period-tab').forEach(tab => {
-        tab.classList.remove('active');
-    });
-    document.querySelector(`[data-period="${period}"]`).classList.add('active');
-    
-    // Update semester info based on period
-    updateSemesterInfo(period);
-    
-    // Re-render current view
-    if (currentView === 'calendar') {
-        renderCalendar();
-    } else {
-        renderListView();
-    }
+  currentPeriod = period;
+
+  // Update active tab
+  document.querySelectorAll(".period-tab").forEach((tab) => {
+    tab.classList.remove("active");
+  });
+  document.querySelector(`[data-period="${period}"]`).classList.add("active");
+
+  // Update semester info based on period
+  updateSemesterInfo(period);
+
+  // Re-render current view
+  if (currentView === "calendar") {
+    renderCalendar();
+  } else {
+    renderListView();
+  }
 }
 
 function updateSemesterInfo(period) {
-    const semesterLabel = document.querySelector('.semester-label');
-    const examPeriod = document.querySelector('.exam-period');
-    
-    switch (period) {
-        case 'current':
-            semesterLabel.textContent = '2024/2025 Academic Session - Second Semester';
-            examPeriod.textContent = 'Examination Period: May 15 - June 30, 2025';
-            break;
-        case 'upcoming':
-            semesterLabel.textContent = '2025/2026 Academic Session - First Semester';
-            examPeriod.textContent = 'Examination Period: December 1 - January 15, 2026';
-            break;
-        case 'past':
-            semesterLabel.textContent = '2024/2025 Academic Session - First Semester';
-            examPeriod.textContent = 'Examination Period: December 1 - January 15, 2025';
-            break;
-    }
+  const semesterLabel = document.querySelector(".semester-label");
+  const examPeriod = document.querySelector(".exam-period");
+
+  switch (period) {
+    case "current":
+      semesterLabel.textContent =
+        "2024/2025 Academic Session - Second Semester";
+      examPeriod.textContent = "Examination Period: May 15 - June 30, 2025";
+      break;
+    case "upcoming":
+      semesterLabel.textContent = "2025/2026 Academic Session - First Semester";
+      examPeriod.textContent =
+        "Examination Period: December 1 - January 15, 2026";
+      break;
+    case "past":
+      semesterLabel.textContent = "2024/2025 Academic Session - First Semester";
+      examPeriod.textContent =
+        "Examination Period: December 1 - January 15, 2025";
+      break;
+  }
 }
 
 function switchView(view) {
-    currentView = view;
-    
-    // Update active button
-    document.querySelectorAll('.view-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    document.querySelector(`[data-view="${view}"]`).classList.add('active');
-    
-    // Show/hide view containers
-    document.querySelectorAll('.view-container').forEach(container => {
-        container.classList.remove('active');
-    });
-    document.querySelector(`.${view}-view`).classList.add('active');
-    
-    // Render appropriate view
-    if (view === 'calendar') {
-        renderCalendar();
-    } else {
-        renderListView();
-    }
+  currentView = view;
+
+  // Update active button
+  document.querySelectorAll(".view-btn").forEach((btn) => {
+    btn.classList.remove("active");
+  });
+  document.querySelector(`[data-view="${view}"]`).classList.add("active");
+
+  // Show/hide view containers
+  document.querySelectorAll(".view-container").forEach((container) => {
+    container.classList.remove("active");
+  });
+  document.querySelector(`.${view}-view`).classList.add("active");
+
+  // Render appropriate view
+  if (view === "calendar") {
+    renderCalendar();
+  } else {
+    renderListView();
+  }
 }
 
 function renderCalendar() {
-    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-        'July', 'August', 'September', 'October', 'November', 'December'];
-    
-    const monthYear = document.getElementById('monthYear');
-    const calendarBody = document.getElementById('calendarBody');
-    
-    monthYear.textContent = `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
-    
-    // Clear calendar body
-    calendarBody.innerHTML = '';
-    
-    // Get first day of month and number of days
-    const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-    const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
-    const startDate = new Date(firstDay);
-    startDate.setDate(startDate.getDate() - firstDay.getDay());
-    
-    // Generate calendar days
-    for (let i = 0; i < 42; i++) { // 6 weeks * 7 days
-        const date = new Date(startDate);
-        date.setDate(startDate.getDate() + i);
-        
-        const dayElement = createDayElement(date);
-        calendarBody.appendChild(dayElement);
-    }
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const monthYear = document.getElementById("monthYear");
+  const calendarBody = document.getElementById("calendarBody");
+
+  monthYear.textContent = `${
+    monthNames[currentDate.getMonth()]
+  } ${currentDate.getFullYear()}`;
+
+  // Clear calendar body
+  calendarBody.innerHTML = "";
+
+  // Get first day of month and number of days
+  const firstDay = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    1
+  );
+  const lastDay = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + 1,
+    0
+  );
+  const startDate = new Date(firstDay);
+  startDate.setDate(startDate.getDate() - firstDay.getDay());
+
+  // Generate calendar days
+  for (let i = 0; i < 42; i++) {
+    // 6 weeks * 7 days
+    const date = new Date(startDate);
+    date.setDate(startDate.getDate() + i);
+
+    const dayElement = createDayElement(date);
+    calendarBody.appendChild(dayElement);
+  }
 }
 
 function createDayElement(date) {
-    const dayElement = document.createElement('div');
-    dayElement.className = 'calendar-day';
-    
-    const today = new Date();
-    const isToday = date.toDateString() === today.toDateString();
-    const isCurrentMonth = date.getMonth() === currentDate.getMonth();
-    
-    if (isToday) {
-        dayElement.classList.add('today');
-    }
-    
-    if (!isCurrentMonth) {
-        dayElement.classList.add('other-month');
-    }
-    
-    // Day number
-    const dayNumber = document.createElement('div');
-    dayNumber.className = 'day-number';
-    dayNumber.textContent = date.getDate();
-    dayElement.appendChild(dayNumber);
-    
-    // Add exam indicators
-    const dateString = date.toISOString().split('T')[0];
-    const dayExams = examData.filter(exam => exam.date === dateString);
-    
-    dayExams.forEach(exam => {
-        const examIndicator = document.createElement('div');
-        examIndicator.className = `exam-indicator ${exam.type}`;
-        examIndicator.textContent = exam.course;
-        examIndicator.title = `${exam.course} - ${exam.title}`;
-        examIndicator.addEventListener('click', (e) => {
-            e.stopPropagation();
-            showExamDetails(exam);
-        });
-        dayElement.appendChild(examIndicator);
+  const dayElement = document.createElement("div");
+  dayElement.className = "calendar-day";
+
+  const today = new Date();
+  const isToday = date.toDateString() === today.toDateString();
+  const isCurrentMonth = date.getMonth() === currentDate.getMonth();
+
+  if (isToday) {
+    dayElement.classList.add("today");
+  }
+
+  if (!isCurrentMonth) {
+    dayElement.classList.add("other-month");
+  }
+
+  // Day number
+  const dayNumber = document.createElement("div");
+  dayNumber.className = "day-number";
+  dayNumber.textContent = date.getDate();
+  dayElement.appendChild(dayNumber);
+
+  // Add exam indicators
+  const dateString = date.toISOString().split("T")[0];
+  const dayExams = examData.filter((exam) => exam.date === dateString);
+
+  dayExams.forEach((exam) => {
+    const examIndicator = document.createElement("div");
+    examIndicator.className = `exam-indicator ${exam.type}`;
+    examIndicator.textContent = exam.course;
+    examIndicator.title = `${exam.course} - ${exam.title}`;
+    examIndicator.addEventListener("click", (e) => {
+      e.stopPropagation();
+      showExamDetails(exam);
     });
-    
-    return dayElement;
+    dayElement.appendChild(examIndicator);
+  });
+
+  // Add click listener to add new exam on this date
+  dayElement.addEventListener("click", () => {
+    if (isCurrentMonth) {
+      openAddExamModal(date);
+    }
+  });
+
+  // Add hover effect and tooltip for clickable dates
+  if (isCurrentMonth) {
+    dayElement.style.cursor = "pointer";
+    if (dayExams.length > 0) {
+      dayElement.title = `${
+        dayExams.length
+      } exam(s) scheduled. Click to add another exam on ${date.toLocaleDateString()}`;
+    } else {
+      dayElement.title = `Click to add an exam on ${date.toLocaleDateString()}`;
+    }
+  }
+
+  return dayElement;
 }
 
 function renderListView() {
-    // List view is already rendered in HTML, but we can update it dynamically here if needed
-    console.log('List view rendered');
+  // List view is already rendered in HTML, but we can update it dynamically here if needed
+  console.log("List view rendered");
 }
 
 function setupActionListeners() {
-    // Study plan buttons
-    document.querySelectorAll('.study-plan').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const courseCode = this.closest('.exam-card').dataset.course;
-            showStudyPlan(courseCode);
-        });
+  // Study plan buttons
+  document.querySelectorAll(".study-plan").forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const courseCode = this.closest(".exam-card").dataset.course;
+      showStudyPlan(courseCode);
     });
+  });
 
-    // Add to calendar buttons
-    document.querySelectorAll('.add-calendar').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const courseCode = this.closest('.exam-card').dataset.course;
-            addToCalendar(courseCode);
-        });
+  // Add to calendar buttons
+  document.querySelectorAll(".add-calendar").forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const courseCode = this.closest(".exam-card").dataset.course;
+      addToCalendar(courseCode);
     });
+  });
 
-    // Set reminder buttons
-    document.querySelectorAll('.set-reminder').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const courseCode = this.closest('.exam-card').dataset.course;
-            showReminderModal(courseCode);
-        });
+  // Set reminder buttons
+  document.querySelectorAll(".set-reminder").forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const courseCode = this.closest(".exam-card").dataset.course;
+      showReminderModal(courseCode);
     });
+  });
 }
 
 function setupModalListeners() {
-    // Close modal listeners
-    document.querySelectorAll('.close').forEach(closeBtn => {
-        closeBtn.addEventListener('click', function() {
-            this.closest('.modal').style.display = 'none';
-        });
+  // Close modal listeners
+  document.querySelectorAll(".close").forEach((closeBtn) => {
+    closeBtn.addEventListener("click", function () {
+      this.closest(".modal").style.display = "none";
     });
+  });
 
-    // Click outside modal to close
-    document.querySelectorAll('.modal').forEach(modal => {
-        modal.addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.style.display = 'none';
-            }
-        });
+  // Click outside modal to close
+  document.querySelectorAll(".modal").forEach((modal) => {
+    modal.addEventListener("click", function (e) {
+      if (e.target === this) {
+        this.style.display = "none";
+      }
     });
+  });
 
-    // Reminder form submission
-    document.getElementById('reminderForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        setReminder();
+  // Reminder form submission
+  document
+    .getElementById("reminderForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+      setReminder();
     });
 }
 
 function showExamDetails(exam) {
-    const details = `
+  const details = `
 Exam: ${exam.course} - ${exam.title}
 Date: ${formatDate(exam.date)}
 Time: ${exam.startTime} - ${exam.endTime}
@@ -317,24 +371,24 @@ Duration: ${exam.duration} minutes
 
 Would you like to add this exam to your calendar or set a reminder?
     `;
-    
-    if (confirm(details)) {
-        addToCalendar(exam.course);
-    }
+
+  if (confirm(details)) {
+    addToCalendar(exam.course);
+  }
 }
 
 function showStudyPlan(courseCode) {
-    const exam = examData.find(e => e.course === courseCode);
-    if (!exam) return;
-    
-    const modal = document.getElementById('studyPlanModal');
-    const content = document.querySelector('.study-plan-content');
-    
-    const examDate = new Date(exam.date);
-    const today = new Date();
-    const daysUntilExam = Math.ceil((examDate - today) / (1000 * 60 * 60 * 24));
-    
-    content.innerHTML = `
+  const exam = examData.find((e) => e.course === courseCode);
+  if (!exam) return;
+
+  const modal = document.getElementById("studyPlanModal");
+  const content = document.querySelector(".study-plan-content");
+
+  const examDate = new Date(exam.date);
+  const today = new Date();
+  const daysUntilExam = Math.ceil((examDate - today) / (1000 * 60 * 60 * 24));
+
+  content.innerHTML = `
         <div class="study-plan">
             <h4>${exam.course} - ${exam.title}</h4>
             <p><strong>Exam Date:</strong> ${formatDate(exam.date)}</p>
@@ -361,65 +415,77 @@ function showStudyPlan(courseCode) {
             </div>
         </div>
     `;
-    
-    modal.style.display = 'block';
+
+  modal.style.display = "block";
 }
 
 function addToCalendar(courseCode) {
-    const exam = examData.find(e => e.course === courseCode);
-    if (!exam) return;
-    
-    const startDateTime = `${exam.date}T${exam.startTime}:00`;
-    const endDateTime = `${exam.date}T${exam.endTime}:00`;
-    
-    const event = {
-        title: `${exam.course} Exam - ${exam.title}`,
-        start: startDateTime,
-        end: endDateTime,
-        description: `${exam.type.charAt(0).toUpperCase() + exam.type.slice(1)} exam for ${exam.title}. Location: ${exam.location}. Instructor: ${exam.instructor}`,
-        location: exam.location
-    };
-    
-    const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${event.start.replace(/[-:]/g, '').replace('.000', '')}/${event.end.replace(/[-:]/g, '').replace('.000', '')}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}`;
-    
-    window.open(googleUrl, '_blank');
+  const exam = examData.find((e) => e.course === courseCode);
+  if (!exam) return;
+
+  const startDateTime = `${exam.date}T${exam.startTime}:00`;
+  const endDateTime = `${exam.date}T${exam.endTime}:00`;
+
+  const event = {
+    title: `${exam.course} Exam - ${exam.title}`,
+    start: startDateTime,
+    end: endDateTime,
+    description: `${
+      exam.type.charAt(0).toUpperCase() + exam.type.slice(1)
+    } exam for ${exam.title}. Location: ${exam.location}. Instructor: ${
+      exam.instructor
+    }`,
+    location: exam.location,
+  };
+
+  const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
+    event.title
+  )}&dates=${event.start.replace(/[-:]/g, "").replace(".000", "")}/${event.end
+    .replace(/[-:]/g, "")
+    .replace(".000", "")}&details=${encodeURIComponent(
+    event.description
+  )}&location=${encodeURIComponent(event.location)}`;
+
+  window.open(googleUrl, "_blank");
 }
 
 function showReminderModal(courseCode) {
-    const modal = document.getElementById('reminderModal');
-    modal.dataset.courseCode = courseCode;
-    modal.style.display = 'block';
+  const modal = document.getElementById("reminderModal");
+  modal.dataset.courseCode = courseCode;
+  modal.style.display = "block";
 }
 
 function setReminder() {
-    const modal = document.getElementById('reminderModal');
-    const courseCode = modal.dataset.courseCode;
-    const reminderTime = document.getElementById('reminderTime').value;
-    const reminderMethod = document.getElementById('reminderMethod').value;
-    
-    const exam = examData.find(e => e.course === courseCode);
-    if (!exam) return;
-    
-    // Simulate setting reminder
-    alert(`Reminder set! You will receive a ${reminderMethod} reminder ${reminderTime} day(s) before your ${exam.course} exam.`);
-    
-    modal.style.display = 'none';
-    document.getElementById('reminderForm').reset();
+  const modal = document.getElementById("reminderModal");
+  const courseCode = modal.dataset.courseCode;
+  const reminderTime = document.getElementById("reminderTime").value;
+  const reminderMethod = document.getElementById("reminderMethod").value;
+
+  const exam = examData.find((e) => e.course === courseCode);
+  if (!exam) return;
+
+  // Simulate setting reminder
+  alert(
+    `Reminder set! You will receive a ${reminderMethod} reminder ${reminderTime} day(s) before your ${exam.course} exam.`
+  );
+
+  modal.style.display = "none";
+  document.getElementById("reminderForm").reset();
 }
 
 function formatDate(dateString) {
-    const date = new Date(dateString);
-    const options = { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-    };
-    return date.toLocaleDateString('en-US', options);
+  const date = new Date(dateString);
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  return date.toLocaleDateString("en-US", options);
 }
 
 // Add some CSS for study plan modal content
-const style = document.createElement('style');
+const style = document.createElement("style");
 style.textContent = `
     .study-plan h4 {
         color: #e91e63;
@@ -457,3 +523,180 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Add Exam Modal Functions
+function openAddExamModal(selectedDate = null) {
+  const modal = document.getElementById("addExamModal");
+  const modalTitle = modal.querySelector(".modal-header h2");
+  modal.style.display = "block";
+  document.body.style.overflow = "hidden";
+
+  // Set minimum date to today
+  const today = new Date().toISOString().split("T")[0];
+  const examDateInput = document.getElementById("examDate");
+  examDateInput.min = today;
+
+  // If a date was clicked, pre-fill the date field and update modal title
+  if (selectedDate) {
+    const dateString = selectedDate.toISOString().split("T")[0];
+    examDateInput.value = dateString;
+
+    // Update modal title to show selected date
+    const formattedDate = selectedDate.toLocaleDateString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    modalTitle.textContent = `Add Exam - ${formattedDate}`;
+
+    // Add visual feedback that date was pre-selected
+    examDateInput.style.borderColor = "#4caf50";
+    examDateInput.style.backgroundColor = "rgba(76, 175, 80, 0.1)";
+
+    // Reset styling after a moment
+    setTimeout(() => {
+      examDateInput.style.borderColor = "";
+      examDateInput.style.backgroundColor = "";
+    }, 2000);
+  } else {
+    // Reset modal title if no date selected
+    modalTitle.textContent = "Add New Exam";
+  }
+}
+
+function closeAddExamModal() {
+  const modal = document.getElementById("addExamModal");
+  const modalTitle = modal.querySelector(".modal-header h2");
+  modal.style.display = "none";
+  document.body.style.overflow = "auto";
+
+  // Reset form and modal title
+  document.getElementById("addExamForm").reset();
+  modalTitle.textContent = "Add New Exam";
+}
+
+// Handle form submission
+document.addEventListener("DOMContentLoaded", function () {
+  const addExamForm = document.getElementById("addExamForm");
+  if (addExamForm) {
+    addExamForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const newExam = {
+        id: Date.now(), // Simple ID generation
+        course:
+          formData.get("examCourse").split(" - ")[0] ||
+          formData.get("examCourse"),
+        title:
+          formData.get("examCourse").split(" - ")[1] ||
+          formData.get("examCourse"),
+        units: parseInt(formData.get("examUnits")),
+        date: formData.get("examDate"),
+        startTime: formData.get("examTime"),
+        duration: parseFloat(formData.get("examDuration")) * 60, // Convert to minutes
+        location: formData.get("examVenue"),
+        instructor: formData.get("examInstructor") || "TBA",
+        notes: formData.get("examNotes") || "",
+        type: "user-added",
+        isUserAdded: true,
+      };
+
+      // Calculate end time
+      const startTime = new Date(`${newExam.date}T${newExam.startTime}`);
+      const endTime = new Date(startTime.getTime() + newExam.duration * 60000);
+      newExam.endTime = endTime.toTimeString().slice(0, 5);
+
+      // Save to localStorage
+      saveExamToStorage(newExam);
+
+      // Add to current exam data
+      examData.push(newExam);
+
+      // Refresh the calendar/list view
+      renderCalendar();
+      renderListView();
+
+      // Close modal and show success message
+      closeAddExamModal();
+      showSuccessMessage("Exam added successfully!");
+    });
+  }
+});
+
+function saveExamToStorage(newExam) {
+  const savedExams = localStorage.getItem("userExams");
+  const userExams = savedExams ? JSON.parse(savedExams) : [];
+  userExams.push(newExam);
+  localStorage.setItem("userExams", JSON.stringify(userExams));
+}
+
+function showSuccessMessage(message) {
+  // Create success notification
+  const notification = document.createElement("div");
+  notification.className = "success-notification";
+  notification.textContent = message;
+  notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #4caf50, #45a049);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        z-index: 1001;
+        font-weight: 600;
+        animation: slideInRight 0.3s ease-out;
+    `;
+
+  document.body.appendChild(notification);
+
+  // Remove after 3 seconds
+  setTimeout(() => {
+    notification.style.animation = "slideOutRight 0.3s ease-in";
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 300);
+  }, 3000);
+}
+
+// Add CSS for notifications
+const notificationStyle = document.createElement("style");
+notificationStyle.textContent = `
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideOutRight {
+        from {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+    }
+`;
+document.head.appendChild(notificationStyle);
+
+// Close modal when clicking outside
+window.addEventListener("click", function (event) {
+  const modal = document.getElementById("addExamModal");
+  if (event.target === modal) {
+    closeAddExamModal();
+  }
+});
+
+// Global functions for HTML onclick handlers
+window.openAddExamModal = openAddExamModal;
+window.closeAddExamModal = closeAddExamModal;

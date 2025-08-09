@@ -80,11 +80,11 @@ function setupEventListeners() {
 function loadUserData() {
   // Get user data from localStorage (set during signup/login)
   const storedUserData = localStorage.getItem("userData");
-  let userName = "Kolawole"; // Default name
+  let userName = "Kennedy"; // Default name
 
   if (storedUserData) {
     const userData = JSON.parse(storedUserData);
-    userName = userData.firstName || userData.name || "Kolawole";
+    userName = userData.firstName || userData.name || "Kennedy";
   }
 
   const userData = {

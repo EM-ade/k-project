@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,14 @@
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/course-reviews.css">
 </head>
+
 <body>
     <!-- Header Navigation -->
     <header class="header">
         <div class="header-content">
             <div class="logo">
-                <div class="logo-icon">📚</div>
+                <img src="../assets/images/chrisland-university-logo-transparent.png" alt="Chrisland University"
+                    class="logo-icon">
             </div>
             <nav class="nav-menu">
                 <div class="nav-item dropdown">
@@ -30,6 +33,7 @@
                         <a href="courses.html" class="dropdown-item">COURSES</a>
                         <a href="planner.html" class="dropdown-item">PLANNER</a>
                         <a href="classtimetable.html" class="dropdown-item">CLASS TIMETABLE</a>
+                        <a href="exam-timetable.html" class="dropdown-item">EXAM TIMETABLE</a>
                         <a href="course-reviews.html" class="dropdown-item active">COURSE REVIEWS</a>
                     </div>
                 </div>
@@ -73,13 +77,14 @@
             <div class="form-step active" id="step-matriculation">
                 <div class="step-content">
                     <h2 class="step-title">Let's start with your matriculation number.</h2>
-                    <p class="step-subtitle">Please fill in the details below correctly so it can be of help to others.</p>
-                    
+                    <p class="step-subtitle">Please fill in the details below correctly so it can be of help to others.
+                    </p>
+
                     <div class="input-group">
                         <label for="matriculation">Enter your matriculation number</label>
                         <input type="text" id="matriculation" placeholder="eg. 16CJ020796" class="form-input">
                     </div>
-                    
+
                     <button class="next-btn" onclick="nextStep()">Continue</button>
                 </div>
             </div>
@@ -88,7 +93,7 @@
             <div class="form-step" id="step-lecturer">
                 <div class="step-content">
                     <h2 class="step-title">Rate the lecturer?</h2>
-                    
+
                     <div class="rating-options">
                         <div class="rating-option" data-value="excellent">
                             <div class="option-card">
@@ -111,7 +116,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="step-navigation">
                         <button class="prev-btn" onclick="prevStep()">Previous</button>
                         <button class="next-btn" onclick="nextStep()">Continue</button>
@@ -123,16 +128,18 @@
             <div class="form-step" id="step-experience">
                 <div class="step-content">
                     <h2 class="step-title">Choose your experience in this course.</h2>
-                    
+
                     <div class="experience-options">
                         <div class="experience-option" data-value="understood-passed">
                             <div class="option-card">
-                                <span class="option-text">I understood every aspect of the course and passed the course.</span>
+                                <span class="option-text">I understood every aspect of the course and passed the
+                                    course.</span>
                             </div>
                         </div>
                         <div class="experience-option" data-value="understood-failed">
                             <div class="option-card">
-                                <span class="option-text">I understood the course yet somehow I failed the examination.</span>
+                                <span class="option-text">I understood the course yet somehow I failed the
+                                    examination.</span>
                             </div>
                         </div>
                         <div class="experience-option" data-value="no-idea-passed">
@@ -146,7 +153,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="step-navigation">
                         <button class="prev-btn" onclick="prevStep()">Previous</button>
                         <button class="next-btn" onclick="nextStep()">Continue</button>
@@ -158,7 +165,7 @@
             <div class="form-step" id="step-tutorials">
                 <div class="step-content">
                     <h2 class="step-title">Where tutorials necessary for this course?</h2>
-                    
+
                     <div class="binary-options">
                         <div class="binary-option" data-value="yes">
                             <div class="option-card">
@@ -171,7 +178,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="step-navigation">
                         <button class="prev-btn" onclick="prevStep()">Previous</button>
                         <button class="next-btn" onclick="nextStep()">Continue</button>
@@ -183,7 +190,7 @@
             <div class="form-step" id="step-technique">
                 <div class="step-content">
                     <h2 class="step-title">Rate the teaching technique</h2>
-                    
+
                     <div class="binary-options">
                         <div class="binary-option" data-value="sufficient">
                             <div class="option-card">
@@ -196,7 +203,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="step-navigation">
                         <button class="prev-btn" onclick="prevStep()">Previous</button>
                         <button class="next-btn" onclick="nextStep()">Continue</button>
@@ -208,7 +215,7 @@
             <div class="form-step" id="step-difficulty">
                 <div class="step-content">
                     <h2 class="step-title">Rate the degree of difficulty.</h2>
-                    
+
                     <div class="difficulty-options">
                         <div class="difficulty-option" data-value="extremely-difficult">
                             <div class="option-card">
@@ -231,7 +238,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="step-navigation">
                         <button class="prev-btn" onclick="prevStep()">Previous</button>
                         <button class="next-btn" onclick="nextStep()">Continue</button>
@@ -244,12 +251,12 @@
                 <div class="step-content">
                     <h2 class="step-title">Confirm Submission.</h2>
                     <p class="step-subtitle">Thanks for taking the time to complete this form.<br>
-                    Please enter your email below and we will be in contact within 24 hours.</p>
-                    
+                        Please enter your email below and we will be in contact within 24 hours.</p>
+
                     <div class="input-group">
                         <input type="email" id="email" placeholder="Enter your email address" class="form-input">
                     </div>
-                    
+
                     <div class="step-navigation">
                         <button class="prev-btn" onclick="prevStep()">Previous</button>
                         <button class="submit-btn" onclick="submitReview()">Complete Submission</button>
@@ -272,4 +279,5 @@
     <script src="../js/navigation.js"></script>
     <script src="../js/course-reviews.js"></script>
 </body>
+
 </html>
