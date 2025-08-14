@@ -3,7 +3,7 @@
 let currentStep = 1;
 const totalSteps = 7;
 let reviewData = {
-    course: 'EIE501',
+    course: 'SEG404',
     matriculation: '',
     lecturerRating: '',
     experience: '',
