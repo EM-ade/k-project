@@ -56,8 +56,8 @@ function setupEventListeners() {
 }
 
 function handleCourseAccess() {
-    const courseTitle = 'CEN523-COMPUTER NETWORKING AND SECURITY';
-    const instructor = 'Dr Kennedy';
+    const courseTitle = 'SEG404-SOFTWARE ENGINEERING PROJECT MANAGEMENT';
+    const instructor = 'Prof. Isaac Odun-Ayo';
     
     // Show loading state
     const accessBtn = document.querySelector('.access-btn');
@@ -93,10 +93,10 @@ Would you like to join this class or add it to your calendar?
 // Calendar integration functions
 function addToGoogleCalendar() {
     const event = {
-        title: 'CEN523-Computer Networking and Security',
+        title: 'SEG404-Software Engineering Project Management',
         start: '2021-07-21T14:00:00',
         end: '2021-07-21T15:00:00',
-        description: 'Computer Networking and Security class with Dr Kennedy',
+        description: 'Software Engineering Project Management class with Prof. Isaac Odun-Ayo',
         location: 'University Campus'
     };
     
@@ -107,10 +107,10 @@ function addToGoogleCalendar() {
 
 function addToAppleCalendar() {
     const event = {
-        title: 'CEN523-Computer Networking and Security',
+        title: 'SEG404-Software Engineering Project Management',
         start: '20210721T140000Z',
         end: '20210721T150000Z',
-        description: 'Computer Networking and Security class with Dr Kennedy',
+        description: 'Software Engineering Project Management class with Prof. Isaac Odun-Ayo',
         location: 'University Campus'
     };
     
@@ -139,10 +139,10 @@ END:VCALENDAR`;
 
 function addToOutlookCalendar() {
     const event = {
-        title: 'CEN523-Computer Networking and Security',
+        title: 'SEG404-Software Engineering Project Management',
         start: '2021-07-21T14:00:00.000Z',
         end: '2021-07-21T15:00:00.000Z',
-        description: 'Computer Networking and Security class with Dr Kennedy',
+        description: 'Software Engineering Project Management class with Prof. Isaac Odun-Ayo',
         location: 'University Campus'
     };
     
